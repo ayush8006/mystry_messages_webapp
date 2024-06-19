@@ -14,6 +14,24 @@ pnpm dev
 bun dev
 ```
 
+
+## Steps Completed
+1. Implemented MongoDB Connection (/src/lib/dbConnect.ts)
+Added dbConnect.ts file to establish a connection to MongoDB using Mongoose.
+Included error handling for database connection failures.
+2. Created Validation Schemas (/src/schema)
+Defined various validation schemas using Zod in the /src/schema directory.
+Schemas include validation for user data such as username, email, password, and custom validations.
+3. Defined User Model (/src/model/User.ts)
+Created User.ts file defining the Mongoose model for users.
+Defined fields such as username, email, password, verify code, and message array.
+Used Mongoose Schema to enforce data structure and validations defined in Zod schemas.
+4. Implemented MongoDB Connection (/src/lib/dbConnect.ts)
+Added dbConnect.ts file to establish a connection to MongoDB using Mongoose.
+Included error handling for database connection failures.
+
+
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
