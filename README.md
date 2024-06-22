@@ -14,24 +14,48 @@ pnpm dev
 bun dev
 ```
 
+## Implementation Details
 
-## Steps Completed
-1. Implemented MongoDB Connection (/src/lib/dbConnect.ts)
-Added dbConnect.ts file to establish a connection to MongoDB using Mongoose.
-Included error handling for database connection failures.
-2. Created Validation Schemas (/src/schema)
-Defined various validation schemas using Zod in the /src/schema directory.
-Schemas include validation for user data such as username, email, password, and custom validations.
-3. Defined User Model (/src/model/User.ts)
-Created User.ts file defining the Mongoose model for users.
-Defined fields such as username, email, password, verify code, and message array.
-Used Mongoose Schema to enforce data structure and validations defined in Zod schemas.
-4. Implemented MongoDB Connection (/src/lib/dbConnect.ts)
-Added dbConnect.ts file to establish a connection to MongoDB using Mongoose.
-Included error handling for database connection failures.
+### 1. Define User and Message Schemas (/src/model/User.ts)
 
+**User Schema**
+- Fields include `username`, `email`, `password`, `verifyCode`, and an array of `messages`.
+- Uses Mongoose Schema to enforce data structure and validations.
 
+**Message Schema**
+- Fields include `sender`, `receiver`, `content`, and `timestamp`.
+- Uses Mongoose Schema to enforce data structure and validations.
 
+### 2. MongoDB Connection (/src/lib/dbConnect.ts)
+
+- Establishes a connection to MongoDB using Mongoose.
+- Includes error handling for database connection failures.
+
+### 3. Validation Schemas (/src/schema)
+
+- Defined various validation schemas using Zod.
+- Schemas include validation for user data such as username, email, password, and custom validations.
+
+### 4. MongoDB Connection (/src/lib/dbConnect.ts)
+
+- Re-established the connection to MongoDB using Mongoose.
+- Included error handling for database connection failures.
+
+### 5. Email Verification for Signup
+
+**Setup Email Service with Resend**
+- Installed and configured the Resend package to handle email sending.
+- Created a utility function to send verification emails to users.
+
+**Handle User Signup and Email Verification**
+- Modified the signup endpoint to include email verification logic.
+- Checks if the user already exists by email.
+  - If the user exists and is verified, returns `success: false`.
+  - If the user exists but is not verified, updates the user's verification code and resends the verification email.
+  - If the user does not exist, creates a new user with a verification code and sends a verification email.
+
+**Save User Information**
+- Saves the new or updated user information in the MongoDB database using the Mongoose model.
 
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
