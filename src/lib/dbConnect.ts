@@ -15,7 +15,7 @@ async function dbConnect(): Promise<void> {
     }
 
     try{
-        const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/your_database'; // Replace with your MongoDB URI
+        const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/mystry_messages'; // Replace with your MongoDB URI
         const db=await mongoose.connect(mongoURI,{})
 
         connection.isConnected=db.connections[0].readyState
