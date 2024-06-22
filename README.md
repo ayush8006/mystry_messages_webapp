@@ -1,18 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Mystery Message WebApp
 
-## Getting Started
+### Description
 
-First, run the development server:
+Mystery Message is a web application designed to facilitate secure and engaging communication. Users can sign up, send encrypted messages, and verify their accounts through email verification. The application ensures data integrity and security using MongoDB for storage and Resend for email services.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Features
+
+- **User Registration and Authentication:** Secure user signup with email verification.
+- **Email Verification:** Users receive a verification email upon signup to activate their account.
+- **Message Sending:** Users can send messages to other users, which are securely stored in the database.
+- **Data Validation:** Ensures data integrity with validation schemas defined using Zod.
+- **MongoDB Integration:** Efficiently stores user and message data with robust error handling.
+
+### Technology Stack
+
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB, Mongoose
+- **Email Service:** Resend
+- **Validation:** Zod
+- **Front-end:** React.js (optional based on implementation)
+
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/ayush8006/mystery-message-webapp.git
+
+## Setting Up and Running the Mystery Message Webapp
+
+## Steps
+
+1. **Navigate to the Project Directory**
+
+    ```sh
+    cd mystery-message-webapp
+    ```
+
+2. **Install the Dependencies**
+
+    ```sh
+    npm install
+    ```
+
+3. **Set Up Environment Variables**
+
+    1. Create a `.env` file in the root directory.
+    2. Add your MongoDB connection string and Resend API key:
+
+        ```env
+        MONGODB_URI=your_mongodb_connection_string
+        RESEND_API_KEY=your_resend_api_key
+        ```
+
+4. **Running the Application**
+
+    1. Start the MongoDB server.
+    2. Run the application:
+
+        ```sh
+        npm start
+        ```
+
+
 
 ## Implementation Details
 
@@ -57,12 +106,6 @@ bun dev
 **Save User Information**
 - Saves the new or updated user information in the MongoDB database using the Mongoose model.
 
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 
